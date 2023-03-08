@@ -24,3 +24,15 @@ PrimaryButton({onPressed, text}){
   );
 
 }
+
+PrimaryIconButton({icon : Icon}){
+  return Container(
+    padding: EdgeInsets.all(10.0),
+    margin: EdgeInsets.only(right: 25),
+    decoration: BoxDecoration(
+    color: Colors.amber,
+    borderRadius: BorderRadius.circular(100)
+    ),
+    child: icon,
+  );
+}

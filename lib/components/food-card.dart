@@ -1,3 +1,4 @@
+import 'package:app_project/components/button.dart';
 import 'package:flutter/material.dart';
 
 
@@ -82,4 +83,74 @@ FoodCard({title, price, desc, image}){
     ),
   );
 
+}
+
+
+FoodCardCheckout({title, price, image}){
+
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 10),
+    child: Container(
+      padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+      margin: EdgeInsets.only(top: 15),
+
+      decoration: BoxDecoration(
+        color: Colors.amber.shade50,
+        borderRadius: BorderRadius.circular(10)
+      ),
+      width: double.infinity,
+
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                  ),
+                ),
+              ),
+
+              Container(
+                  width: 80.0,
+                  height: 80.0,
+                  color: Colors.red,
+                  child: Image.asset(
+                  "assets/images/flash-image-1.jpg",
+                  fit: BoxFit.fill,
+                  width: 80.0,
+                  height: 80.0,
+                ),
+              ),
+
+            ],
+          ),
+
+          const Text(
+              "0",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
+                color: Colors.red
+            ),
+          ),
+
+          Row(
+            children: [
+
+              PrimaryIconButton(icon: Icon(Icons.add)),
+              PrimaryIconButton(icon: Icon(Icons.remove)),
+
+            ],
+          ),
+      ]
+     ) 
+    )
+  );
 }

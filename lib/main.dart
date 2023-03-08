@@ -1,4 +1,4 @@
-import 'package:app_project/screens/details-screen.dart';
+import 'package:app_project/screens/checkout-screen.dart';
 import 'package:app_project/screens/flash-screen.dart';
 import 'package:app_project/screens/home-screen.dart';
 import 'package:app_project/screens/orders-list-screen.dart';
