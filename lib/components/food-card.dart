@@ -1,8 +1,9 @@
 import 'package:app_project/components/button.dart';
+import 'package:app_project/models/food_item.dart';
 import 'package:flutter/material.dart';
 
 
-FoodCard({title, price, desc, image}){
+FoodCard(FoodItem item){
 
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -24,14 +25,14 @@ FoodCard({title, price, desc, image}){
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                title,
+                item.title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20.0,
               ),
               ),
               Text(
-                price,
+                "${item.price}",
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20.0,
@@ -52,7 +53,7 @@ FoodCard({title, price, desc, image}){
                 height: 80.0,
                 color: Colors.red,
                 child: Image.asset(
-                "assets/images/flash-image-1.jpg",
+                item.imagePath,
                 fit: BoxFit.fill,
                 width: 80.0,
                 height: 80.0,
@@ -61,20 +62,25 @@ FoodCard({title, price, desc, image}){
               SizedBox(
                 width: 150,
                 child: Text(
-                desc,
+                item.desc,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 15.0,
                 ),
               ),
               ),
-              Container(
-                padding: EdgeInsets.all(18),
-                decoration: BoxDecoration(
-                  color: Colors.amber.shade300,
-                  borderRadius: BorderRadius.circular(25)
+              GestureDetector(
+                onTap: () {
+                  //TODO
+                },
+                child: Container(
+                  padding: EdgeInsets.all(18),
+                  decoration: BoxDecoration(
+                    color: Colors.amber.shade300,
+                    borderRadius: BorderRadius.circular(25)
+                  ),
+                  child: const Icon(Icons.shopping_cart),
                 ),
-                child: const Icon(Icons.shopping_cart),
               )
             ],
           )
@@ -142,6 +148,7 @@ FoodCardCheckout({title, price, image}){
           ),
 
           Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
 
               PrimaryIconButton(icon: Icon(Icons.add)),

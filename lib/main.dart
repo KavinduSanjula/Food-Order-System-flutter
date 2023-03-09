@@ -1,3 +1,5 @@
+import 'package:app_project/controllers/food_list.dart';
+import 'package:app_project/models/food_item.dart';
 import 'package:app_project/screens/checkout-screen.dart';
 import 'package:app_project/screens/flash-screen.dart';
 import 'package:app_project/screens/home-screen.dart';
@@ -68,6 +70,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   void initialization() async {
+
+    var food0 = FoodItem(title: "Fride Rice", desc: "This is a short description about the food.", price: 500.0, imagePath: "assets/images/fried-rice.jpg");
+    var food1 = FoodItem(title: "Burger", desc: "This is a short description about the food.", price: 200.0, imagePath: "assets/images/burger.jpg");
+    var food2 = FoodItem(title: "Rice", desc: "This is a short description about the food.", price: 300.0, imagePath: "assets/images/rice.png");
+    var food3 = FoodItem(title: "Pizza", desc: "This is a short description about the food.", price: 1200.0, imagePath: "assets/images/pizza.jpg");
+
+    FoodList.addFoodItem(food0);
+    FoodList.addFoodItem(food1);
+    FoodList.addFoodItem(food2);
+    FoodList.addFoodItem(food3);
 
     await Future.delayed(const Duration(seconds: 2));
 

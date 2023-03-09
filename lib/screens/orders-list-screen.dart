@@ -1,4 +1,7 @@
 import 'package:app_project/components/food-card.dart';
+import 'package:app_project/controllers/food_cart.dart';
+import 'package:app_project/controllers/food_list.dart';
+import 'package:app_project/models/food_item.dart';
 import 'package:flutter/material.dart';
 
 class OrderrsList extends StatefulWidget {
@@ -15,38 +18,23 @@ class _OrderrsListState extends State<OrderrsList> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text("Order Now"),
-          actions: const [
+          actions: [
             Padding(padding: EdgeInsets.only(right: 15.0, top: 20),
             child: Text(
-              "5",
-              style: TextStyle(
+              "${FoodCart.foods.length}",
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold
               ),
             ),)
           ],
         ),
-        body: Column(
-          children: [
-            FoodCard(
-              title: "Fride Rice",
-              price: "\$ 100.0",
-              desc: "This is a short description about the food. you can check it out now",
-              image: "assets/images/flash-image-1.jpg",
-            ),
-            FoodCard(
-              title: "Fride Rice",
-              price: "\$ 100.0",
-              desc: "This is a short description about the food. you can check it out now",
-              image: "assets/images/flash-image-1.jpg",
-            ),
-            FoodCard(
-              title: "Fride Rice",
-              price: "\$ 100.0",
-              desc: "This is a short description about the food. you can check it out now",
-              image: "assets/images/flash-image-1.jpg",
-            )
-          ],
+        body: ListView.builder(
+          itemCount: FoodList.getFoods().length,
+          itemBuilder: (context, index) {
+            var foods = FoodList.getFoods();
+            return FoodCard(foods[index]);
+          },
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
